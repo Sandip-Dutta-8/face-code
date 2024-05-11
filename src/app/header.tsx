@@ -25,7 +25,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { useState } from "react";
-//import { deleteAccountAction } from "./actions";
+import { deleteAccountAction } from "./actions";
 
 function AccountDropdown() {
   const session = useSession();
@@ -45,10 +45,10 @@ function AccountDropdown() {
           <AlertDialogFooter>
             <AlertDialogCancel>Cancel</AlertDialogCancel>
             <AlertDialogAction
-            //   onClick={async () => {
-            //     await deleteAccountAction();
-            //     signOut({ callbackUrl: "/" });
-            //   }}
+              onClick={async () => {
+                await deleteAccountAction();
+                signOut({ callbackUrl: "/" });
+              }}
             >
               Yes, delete my account
             </AlertDialogAction>
@@ -104,10 +104,9 @@ export function Header() {
         >
           <Image
             src="/icon.png"
-            width="50"
-            height="50"
+            width="70"
+            height="70"
             alt="the application icon of a magnifying glass"
-            className="rounded-lg"
           />
           Facecode
         </Link>
@@ -135,16 +134,6 @@ export function Header() {
           )}
           <ModeToggle />
         </div>
-
-        {/* {
-          session.data ? (
-            <Button onClick={() => signOut()}>Sign Out</Button>
-          ) : (
-            <Button onClick={() => signIn("google")}>Sign In</Button>
-          )
-        }
-
-        {session.data?.user?.name} */}
       </div>
     </header>
   );

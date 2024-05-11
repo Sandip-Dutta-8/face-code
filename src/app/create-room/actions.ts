@@ -3,7 +3,7 @@
 import { Room } from "@/db/schema";
 import { getSession } from "@/lib/auth";
 import { revalidatePath } from "next/cache";
-import { createRoom } from "../../../data-access/room";
+import { createRoom } from '@/data-access/rooms'
 
 export async function createRoomAction(roomData: Omit<Room, "id" | "userId">) {
   const session = await getSession();
